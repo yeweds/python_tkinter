@@ -5,12 +5,57 @@ import tkinter
 
 # Create window
 window = tkinter.Tk()
-window.title('16 Binary Converters')
-window.geometry('350x550')
+window.title('Binary Converters')
+window.geometry('350x650')
+
+# The setting of some text of the function "get_number()"
+SUCCESSFUL_OUTPUT_1 = 'The 16 binary number of '
+SUCCESSFUL_OUTPUT_2 = ' is '
+FAILED_OUTPUT = 'The number you typed in is wrong, \npleace re-enter and click the button "Confirm"'
+
+# Create a function for Radiobuttons
+
+
+def language_setting():
+    global SUCCESSFUL_OUTPUT_1, SUCCESSFUL_OUTPUT_2, FAILED_OUTPUT
+    language_selection_label.config(
+        text=f'(You have selected {language_variable.get()} for this program)')
+    if language_variable.get() == 'chinese':
+        window.title('进制转换器')
+        explain_label.config(text='请在下方输入需转换整数，并点击“确认”键')
+        confirm_button.config(text='确认')
+        SUCCESSFUL_OUTPUT_1 = ''
+        SUCCESSFUL_OUTPUT_2 = '的16进制为'
+        FAILED_OUTPUT = '输入有误，请重新输入并点击“确认键”'
+    else:
+        window.title('Binary Converters')
+        explain_label.config(
+            text='Please enter an integer below,\nand then click the button "Confirm"')
+        confirm_button.config(text='Confirm')
+        SUCCESSFUL_OUTPUT_1 = 'The 16 binary number of '
+        SUCCESSFUL_OUTPUT_2 = ' is '
+        FAILED_OUTPUT = 'The number you typed in is wrong, \npleace re-enter and click the button "Confirm"'
+
+
+# Create a Radiobutton to set the language
+language_variable = tkinter.StringVar()
+tkinter.Radiobutton(window, text='English', variable=language_variable,
+                    value='english', command=language_setting).pack()
+tkinter.Radiobutton(window, text='中文（简体）', variable=language_variable,
+                    value='chinese', command=language_setting).pack()
+
+# Create a label to show the language selection
+language_selection_label = tkinter.Label(
+    window, text='(You have not selected any language yet!)')
+language_selection_label.pack()
+
+# Create an empty label to optimize the layout
+tkinter.Label(window, height=1).pack()
 
 # Create a label to show how to use it
-tkinter.Label(window, text='Please enter an integer below,\nand then click the button "Confirm"', font=(
-    'Arial', 12), height=2).pack()
+explain_label = tkinter.Label(
+    window, text='Please enter an integer below,\nand then click the button "Confirm"', font=('Arial', 12), height=2)
+explain_label.pack()
 
 # Create an empty label to optimize the layout
 tkinter.Label(window, height=1).pack()
@@ -31,20 +76,20 @@ def get_number():
     INPUT_STRING = entry.get()
     # Check if it's an integer and then set the result
     if INPUT_STRING.isdigit():
-        output_string.set(
-            f'The 16 binary number of {INPUT_STRING} is {hex(int(INPUT_STRING))}')
+        output_string.set(SUCCESSFUL_OUTPUT_1+INPUT_STRING +
+                          SUCCESSFUL_OUTPUT_2+hex(int(INPUT_STRING)))
         history_listbox.insert(0, [INPUT_STRING, hex(int(INPUT_STRING))])
     elif INPUT_STRING == '':
         output_string.set('')
     else:
-        output_string.set(
-            'The number you typed in is wrong, \npleace re-enter and click the button "Confirm"')
+        output_string.set(FAILED_OUTPUT)
     # Delete the results that listbox can't show
     history_listbox.delete(20)
 
 
 # Create a button and bind the function to it
-tkinter.Button(window, text='Confirm', command=get_number).pack()
+confirm_button = tkinter.Button(window, text='Confirm', command=get_number)
+confirm_button.pack()
 
 # Create an empty label to optimize the layout
 tkinter.Label(window, height=1).pack()
