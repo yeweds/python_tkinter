@@ -3,11 +3,17 @@ A example of tkinter window that can help beginners learn to build a simple GUI 
 
 Description:
 This script is used by the author to learn tkinter.
-The function is to convert the input 10 binary integers to 16 and show the results.
+The function is to convert the input 10 binary integers to 16/8/2 binary and show the results.
 这个脚本是作者用来学习tkinter的。
-功能是将输入的10进制整数转换为16进制，并将结果展示出来。
+功能是将输入的10进制整数转换为16进制、8进制或2进制，并将结果展示出来。
 
 Version and Update:
+
+0.0.4:
+Now this program can convert decimal numbers to 8 or 2 binary.
+All settings have been moved to a menubar.
+现在这个程序能把十进制数转为8进制或2进制。
+所有设置都移到了菜单栏。
 
 0.0.3:
 Now this program has got a better UI thanks to tkinter's layout setting "place()".
