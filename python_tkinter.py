@@ -6,7 +6,7 @@ import tkinter
 # Create window
 window = tkinter.Tk()
 window.title('Binary Converters')
-window.geometry('350x650')
+window.geometry('350x560')
 
 # The setting of some text of the function "get_number()"
 SUCCESSFUL_OUTPUT_1 = 'The 16 binary number of '
@@ -40,32 +40,23 @@ def language_setting():
 # Create a Radiobutton to set the language
 language_variable = tkinter.StringVar()
 tkinter.Radiobutton(window, text='English', variable=language_variable,
-                    value='english', command=language_setting).pack()
+                    value='english', command=language_setting).place(x=0, y=0, anchor='nw')
 tkinter.Radiobutton(window, text='中文（简体）', variable=language_variable,
-                    value='chinese', command=language_setting).pack()
+                    value='chinese', command=language_setting).place(x=0, y=30, anchor='nw')
 
 # Create a label to show the language selection
 language_selection_label = tkinter.Label(
     window, text='(You have not selected any language yet!)')
-language_selection_label.pack()
-
-# Create an empty label to optimize the layout
-tkinter.Label(window, height=1).pack()
+language_selection_label.place(x=100, y=15, anchor='nw')
 
 # Create a label to show how to use it
 explain_label = tkinter.Label(
     window, text='Please enter an integer below,\nand then click the button "Confirm"', font=('Arial', 12), height=2)
-explain_label.pack()
-
-# Create an empty label to optimize the layout
-tkinter.Label(window, height=1).pack()
+explain_label.place(x=175, y=110, anchor='center')
 
 # Create an entry and place it
 entry = tkinter.Entry(window, show=None)
-entry.pack()
-
-# Create an empty label to optimize the layout
-tkinter.Label(window, height=1).pack()
+entry.place(x=140, y=150, anchor='center')
 
 # Define the function of the button
 
@@ -89,23 +80,17 @@ def get_number():
 
 # Create a button and bind the function to it
 confirm_button = tkinter.Button(window, text='Confirm', command=get_number)
-confirm_button.pack()
-
-# Create an empty label to optimize the layout
-tkinter.Label(window, height=1).pack()
+confirm_button.place(x=240, y=150, anchor='center')
 
 # Create a label to show the result
 output_string = tkinter.StringVar()
 result_label = tkinter.Label(
     window, textvariable=output_string, font=('Arial', 12), height=2)
-result_label.pack()
-
-# Create an empty label to optimize the layout
-tkinter.Label(window, height=1).pack()
+result_label.place(x=175, y=205, anchor='center')
 
 # Create a listbox to show the results of the most recent calculations
 history_listbox = tkinter.Listbox(window, width=55, height=20)
-history_listbox.pack()
+history_listbox.place(x=175, y=390, anchor='center')
 
 # THe loop of the window
 window.mainloop()

@@ -9,6 +9,10 @@ The function is to convert the input 10 binary integers to 16 and show the resul
 
 Version and Update:
 
+0.0.3:
+Now this program has got a better UI thanks to tkinter's layout setting "place()".
+现在这个程序得到了一个更好的 UI, 多亏了 tkinter 的布局设置 "place()"。
+
 0.0.2:
 Now the users can select a language they want with two radiobuttons.
 There are two languages that can be selected: english and chinese(samplified).
