@@ -9,6 +9,14 @@ The function is to convert the input 10 binary integers to 16/8/2 binary and sho
 
 Version and Update:
 
+0.1.1:  
+The input error will be warned by a window that open automatically.  
+The result will be automatically copied.  
+The arrow is dynamic now.  
+输入错误会由弹出窗口警告。  
+结果会被自动复制。  
+箭头现在变成了动态的。
+
 0.0.5：  
 Optimized the UI.  
 优化了UI。
