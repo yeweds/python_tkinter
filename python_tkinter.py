@@ -25,21 +25,24 @@ FAILED_OUTPUT = 'The number you typed in is wrong, \nplease re-enter and click t
 menu_bar = tkinter.Menu(window)
 
 
-# Create functions for function and language selection
+# Create functions for calculation mode and language selection
 
 def sixteen_binary_converter():
     global CONVERTER_MODE
     CONVERTER_MODE = 16
+    output_binary.config(text='16')
 
 
 def eight_binary_converter():
     global CONVERTER_MODE
     CONVERTER_MODE = 8
+    output_binary.config(text='8')
 
 
 def two_binary_converter():
     global CONVERTER_MODE
     CONVERTER_MODE = 2
+    output_binary.config(text='2')
 
 
 def switch_to_english():
@@ -89,9 +92,12 @@ explain_label = tkinter.Label(window, text='Please enter an integer below,\nand 
                               font=('Arial', 12), height=2)
 explain_label.place(x=175, y=30, anchor='center')
 
-# Create a Label to show an arrow
-arrow_label = tkinter.Label(window, text='===>')
-arrow_label.place(x=55, y=70, anchor='center')
+# Create two label controls to show the calculation mode
+input_binary = tkinter.Label(window, text='10')
+input_binary.place(x=25, y=70, anchor='center')
+tkinter.Label(window, text='===>').place(x=55, y=70, anchor='center')
+output_binary = tkinter.Label(window, text='16')
+output_binary.place(x=80, y=70, anchor='center')
 
 # Create an entry and place it
 entry = tkinter.Entry(window, show=None)
